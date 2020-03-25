@@ -50,6 +50,7 @@ public class MyIoCContainer {
         autoWired.forEach(field -> {
             field.setAccessible(true);
             Object di = beanMap.get(field.getName());
+            String name = field.getDeclaringClass().getSimpleName();
             try {
                 field.set(beanInstance, di);
             } catch (IllegalAccessException e) {
